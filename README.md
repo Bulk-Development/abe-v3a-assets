@@ -41,3 +41,18 @@ Taken from the header of `abe-data.js` (unchanged):
 | amount_sum_usd | 163835778.83 |
 
 No secrets. HubSpot record URLs only.
+
+## Enable Pages
+
+Files are on `main`. This token cannot change repository Settings, so a repository admin still has to turn Pages on:
+
+1. Open [Settings → Pages](https://github.com/Bulk-Development/abe-v3a-assets/settings/pages).
+2. Under **Build and deployment**, set **Source** to **GitHub Actions**.
+3. Re-run the **Deploy GitHub Pages** workflow on `main` (Actions tab → the latest run → **Re-run jobs**).
+
+Alternate, if the Source menu only offers a branch: choose **Deploy from a branch**, Branch **main**, Folder **/ (root)**, then **Save**. `.nojekyll` is already on `main`, so the root `.js` files publish as static files.
+
+After either choice, these URLs should return HTTP 200:
+
+- https://bulk-development.github.io/abe-v3a-assets/abe-data.js
+- https://bulk-development.github.io/abe-v3a-assets/abe-v3a.js
