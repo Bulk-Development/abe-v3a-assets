@@ -1,0 +1,183 @@
+/* Abe Deal Report V3a — CCC tokens
+ * Source: v3a/abe-v3a-interactive.html (CCC restyle)
+ * Use as Elementor Page Custom CSS (preferred) OR host as abe-v3a.css
+ * No CCC sidebar. Scoped primarily under .abe-v3a; :root tokens for color.
+ */
+:root{
+  --ink:#1F1F1F; --grey:#595959; --line:#D9D9D9; --light:#F2F2F2; --paper:#FFFFFF;
+  --red:#B3132B; --navy:#2E4A6B; --teal:#1F7A8C; --gold:#9A6B00; --green:#2F7D4A; --plum:#6B3A7A;
+  --fresh:var(--green); --cool:var(--gold); --stale:var(--red);
+}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--paper);color:var(--ink);font:14px/1.45 "Helvetica Neue",Helvetica,Arial,sans-serif}
+a{color:var(--navy)}
+h1,h2,h3{margin:0;font-weight:700;letter-spacing:-.01em}
+.muted{color:var(--grey)} .small{font-size:12px}
+
+/* Shell — no CCC sidebar (embed-safe for #bec-sc-embed) */
+.abe-v3a{max-width:1180px;margin:0 auto;padding:22px 20px 56px}
+
+/* Header like CCC header.top */
+.abe-head{padding-bottom:14px;border-bottom:2px solid var(--ink);margin-bottom:18px}
+.abe-title{font-size:24px;font-weight:700;letter-spacing:-.01em}
+.abe-subtitle{margin:4px 0 0;font-size:13px;color:var(--grey);font-weight:600;letter-spacing:.02em}
+.abe-asof{margin:8px 0 0;font-size:12.5px;color:var(--grey);line-height:1.45}
+
+/* How-to = CCC .howto */
+.abe-howto{margin:0 0 16px;padding:12px 16px;background:var(--light);font-size:12.5px;border-left:4px solid var(--red);color:var(--ink)}
+.abe-howto strong,.abe-howto .t{display:block;font-weight:700;font-size:13.5px;margin-bottom:6px}
+
+/* Metric tiles = CCC .kpi / .machkpis / .assume (paper cards, red numbers) */
+.abe-tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(132px,1fr));gap:10px;margin:0 0 10px}
+.abe-tile{
+  background:var(--light);border:1px solid var(--line);border-top:3px solid var(--ink);
+  padding:12px 12px 10px;text-align:left;cursor:pointer;font:inherit;color:var(--ink);
+  transition:border-color .12s, box-shadow .12s;
+}
+.abe-tile:hover{border-color:var(--ink);box-shadow:0 0 0 1px var(--ink) inset}
+.abe-tile:focus-visible{outline:2px solid var(--red);outline-offset:2px}
+.abe-tile.is-active{border-color:var(--red);border-top-color:var(--red);box-shadow:0 0 0 1px var(--red) inset;background:#FBE9EC}
+.abe-tile .v{font-size:20px;font-weight:700;color:var(--red);line-height:1.1;font-variant-numeric:tabular-nums}
+.abe-tile .l{margin-top:6px;font-size:11.5px;color:var(--grey);font-weight:600;letter-spacing:.02em}
+.abe-tile .s{margin-top:4px;font-size:11px;color:var(--grey);line-height:1.35}
+
+.abe-basis{font-size:12px;color:var(--grey);margin:4px 0 14px;line-height:1.45}
+.abe-basis b{color:var(--ink)}
+
+/* Legend = CCC .legend */
+.abe-legend{
+  display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;
+  font-size:12px;color:var(--grey);margin:0 0 14px;padding:12px 14px;border:1px solid var(--line);background:#fff
+}
+.abe-legend-title{font-weight:700;color:var(--ink);font-size:12px;margin-right:4px}
+.abe-legend-item{display:inline-flex;align-items:center;gap:5px}
+
+/* Cuebar + lens chips = CCC .cuebar / .sctabs */
+.abe-toolbar{display:flex;flex-wrap:wrap;gap:10px 14px;align-items:center;margin:0 0 14px}
+.abe-lens-label{font-size:11.5px;font-weight:700;color:var(--grey);letter-spacing:.04em;text-transform:uppercase}
+.abe-chips{display:flex;flex-wrap:wrap;gap:6px}
+.abe-chip{
+  border:1px solid var(--ink);background:#fff;color:var(--ink);
+  padding:7px 12px;font-size:12.5px;cursor:pointer;font:inherit;font-weight:600
+}
+.abe-chip.is-active{background:var(--ink);color:#fff}
+.abe-chip:focus-visible{outline:2px solid var(--red);outline-offset:2px}
+.abe-filter-pill{
+  margin-left:auto;display:none;align-items:center;gap:8px;
+  font-size:12px;padding:4px 10px;border-radius:999px;
+  background:var(--red);color:#fff;font-weight:700;letter-spacing:.03em
+}
+.abe-filter-pill.is-on{display:inline-flex}
+.abe-filter-pill button{
+  border:0;background:transparent;color:#fff;font-weight:700;cursor:pointer;
+  font-size:12px;padding:0;text-decoration:underline
+}
+
+/* Section title = CCC section > h2 with red badge (no full red bar) */
+.abe-book-sec{margin:8px 0 10px;border-top:3px solid var(--ink);padding-top:14px}
+.abe-book-title{
+  display:flex;align-items:baseline;gap:12px;margin:0;padding:0;
+  background:transparent;color:var(--ink);font-size:19px;font-weight:700
+}
+.abe-book-title::before{
+  content:"01";font-size:12px;font-weight:700;color:#fff;background:var(--red);
+  padding:3px 7px;border-radius:2px;letter-spacing:.06em
+}
+.abe-book-sub{font-size:12.5px;color:var(--grey);margin:8px 0 12px}
+
+/* Groups = CCC .lane / .track bordered lanes */
+.abe-group{border:1px solid var(--line);margin-bottom:10px;background:#fff;overflow:hidden}
+.abe-group-hd{
+  width:100%;display:grid;grid-template-columns:28px 1fr auto;gap:10px;align-items:center;
+  text-align:left;background:var(--light);color:var(--ink);border:0;border-bottom:1px solid var(--line);
+  border-left:4px solid transparent;padding:12px 14px;cursor:pointer;font:inherit
+}
+.abe-group-hd:hover{background:#EBEBEB}
+.abe-group.is-open .abe-group-hd{border-left-color:var(--red);background:#FBE9EC}
+.abe-group-hd .caret{font-size:14px;width:20px;text-align:center;color:var(--grey)}
+.abe-group.is-open .abe-group-hd .caret{color:var(--red)}
+.abe-group-hd .name{font-weight:700;font-size:14.5px;line-height:1.25}
+.abe-group-hd .meta{font-size:11.5px;color:var(--grey);margin-top:2px}
+.abe-group-hd .sums{font-size:12.5px;text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums;color:var(--ink)}
+.abe-group-hd .sums b{color:var(--red);font-weight:700}
+.abe-group-body{display:none;padding:0}
+.abe-group.is-open .abe-group-body{display:block}
+.abe-group.is-open .abe-group-hd .caret::before{content:"▾"}
+.abe-group:not(.is-open) .abe-group-hd .caret::before{content:"▸"}
+
+/* Deal rows */
+.abe-deal{border-top:1px solid var(--line)}
+.abe-deal:nth-child(even){background:#FAFAFA}
+.abe-deal.is-open{background:#fff;border-left:4px solid var(--red)}
+.abe-deal-hd{
+  width:100%;display:grid;grid-template-columns:28px minmax(0,1fr) 120px 110px 110px;gap:8px;
+  align-items:start;text-align:left;border:0;background:transparent;padding:10px 14px;
+  cursor:pointer;font:inherit;color:inherit
+}
+.abe-deal-hd:hover{background:#F5F7FA}
+.abe-deal-hd .caret{color:var(--grey);font-size:13px;padding-top:2px}
+.abe-deal.is-open .abe-deal-hd .caret{color:var(--red)}
+.abe-deal.is-open .abe-deal-hd .caret::before{content:"▾"}
+.abe-deal:not(.is-open) .abe-deal-hd .caret::before{content:"▸"}
+.abe-deal-name{font-weight:600;font-size:13px;word-break:break-word}
+.abe-deal-sub{margin-top:4px;font-size:11.5px;color:var(--grey);line-height:1.55}
+.abe-money{font-size:13px;text-align:right;font-variant-numeric:tabular-nums;padding-top:2px}
+.abe-money .lbl{
+  display:block;font-size:10px;color:var(--grey);text-transform:uppercase;
+  letter-spacing:.03em;font-weight:600;margin-bottom:2px
+}
+
+/* Deal card = CCC bordered panel + h3 light bar */
+.abe-card{display:none;padding:0 14px 16px 42px;border-top:1px solid var(--line);background:#FBFBFB}
+.abe-deal.is-open .abe-card{display:block}
+.abe-card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;padding-top:14px}
+.abe-card-sec{border:1px solid var(--line);background:#fff;padding:10px 12px;min-width:0}
+.abe-card-sec h4{
+  margin:0 0 8px;padding:6px 10px;background:var(--light);border-left:4px solid var(--red);
+  font-size:12.5px;font-weight:700;color:var(--ink);text-transform:none;letter-spacing:0
+}
+.abe-kv{font-size:12.5px;margin:0}
+.abe-kv dt{float:left;clear:left;width:44%;color:var(--grey);padding:3px 0}
+.abe-kv dd{margin:0 0 0 44%;padding:3px 0;word-break:break-word;font-weight:600}
+.abe-desc{
+  margin-top:12px;font-size:12.5px;color:var(--ink);background:#fff;
+  padding:10px 12px;border:1px solid var(--line);border-left:4px solid var(--navy);line-height:1.45
+}
+.abe-hs{
+  display:inline-block;margin-top:12px;background:var(--ink);color:#fff;text-decoration:none;
+  font-size:12.5px;font-weight:700;padding:8px 14px;border:1px solid var(--ink)
+}
+.abe-hs:hover{background:var(--red);border-color:var(--red)}
+
+/* Activity dots + who chips (CCC) */
+.abe-dot{font-size:11px}
+.abe-dot.fresh{color:var(--fresh)}
+.abe-dot.cool{color:var(--cool)}
+.abe-dot.stale,.abe-dot.none{color:var(--stale)}
+.who{
+  display:inline-flex;align-items:center;gap:6px;padding:2px 8px 2px 2px;border-radius:999px;
+  background:#fff;border:1px solid var(--line);font-size:12px;white-space:nowrap;line-height:1.2;
+  max-width:100%;margin:0 2px;vertical-align:middle
+}
+.who .nm{white-space:nowrap}
+.who i{
+  display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;
+  border-radius:50%;font-style:normal;font-weight:700;font-size:9px;color:#fff;background:var(--grey);flex:none
+}
+.who.point i{background:var(--red)}
+.who.qb i{background:var(--navy)}
+
+.abe-empty{
+  padding:20px 14px;font-size:13px;color:var(--grey);border:1px dashed var(--line);
+  text-align:center;background:var(--light)
+}
+.abe-howto-code{display:none}
+
+@media (max-width:720px){
+  .abe-v3a{padding:14px 12px 40px}
+  .abe-deal-hd{grid-template-columns:24px 1fr}
+  .abe-money{display:none}
+  .abe-group-hd{grid-template-columns:24px 1fr}
+  .abe-group-hd .sums{display:none}
+  .abe-tiles{grid-template-columns:repeat(2,minmax(0,1fr))}
+}

@@ -1,0 +1,32 @@
+<!-- Paste this into Elementor Custom HTML on WP 7663.
+     Do NOT include <script> here — Elementor strips them for password visitors.
+     CSS: Elementor Page → Custom CSS = abe-v3a.css contents.
+     JS: theme enqueue abe-data.js then abe-v3a.js on page 7663 only (see PEN-INSTRUCTIONS.md).
+-->
+<div class="abe-v3a" id="abe-v3a" data-abe-version="v3a-interactive-ccc">
+  <header class="abe-head top">
+    <h1 class="abe-title">Abe&#8217;s Deal Report</h1>
+    <p class="abe-subtitle">Big Deal Pipeline</p>
+    <p class="abe-asof" id="abe-asof"></p>
+  </header>
+  <div class="abe-howto howto">
+    <strong class="t">How to use</strong>
+    Click a tile to filter the book. Switch lenses (Customer, Territory, Owner, Stage). Click a group to expand deals; click a deal to open the detail card. Blank capital and blank fields show as — — never invented. Every deal has an Open in HubSpot link.
+  </div>
+  <div class="abe-tiles" id="abe-tiles" role="toolbar" aria-label="Book filters"></div>
+  <p class="abe-basis" id="abe-basis"></p>
+  <div class="abe-legend legend" id="abe-legend"></div>
+  <div class="abe-toolbar cuebar">
+    <span class="abe-lens-label">View by</span>
+    <div class="abe-chips" id="abe-lenses" role="tablist" aria-label="Lenses"></div>
+    <div class="abe-filter-pill cue" id="abe-filter-pill">
+      <span id="abe-filter-label"></span>
+      <button type="button" id="abe-filter-clear">Clear</button>
+    </div>
+  </div>
+  <div class="abe-book-sec">
+    <h2 class="abe-book-title" id="abe-book-title">Deal book</h2>
+    <p class="abe-book-sub" id="abe-book-sub"></p>
+  </div>
+  <div id="abe-book"></div>
+</div>
